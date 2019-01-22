@@ -1,4 +1,4 @@
-# vue_wehrego
+# vue_wherego
 
 > vue study
 

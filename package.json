@@ -1,5 +1,5 @@
 {
-  "name": "vue_wehrego",
+  "name": "vue_wherego",
   "version": "1.0.0",
   "description": "vue study",
   "author": "Lee",
@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "fastclick": "^1.0.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
