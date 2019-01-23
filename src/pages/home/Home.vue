@@ -1,10 +1,11 @@
 <template>
   <div :class="defaultTit">
-    <div>{{ msg }}</div>
+    <HomeHeader />
   </div>
 </template>
 
 <script>
+import HomeHeader from './components/HomeHeader'
 export default {
   name: 'Home',
   data: function () {
@@ -12,12 +13,12 @@ export default {
       msg: 'This is My First Vue Project',
       defaultTit: 'DefaultTit'
     }
+  },
+  components: {
+    HomeHeader
   }
 }
 </script>
 
-<style scoped>
-  .DefaultTit *{
-    font-size:20px;text-align:center;
-  }
+<style lang="scss" scoped>
 </style>
