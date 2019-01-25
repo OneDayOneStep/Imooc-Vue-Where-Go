@@ -43,7 +43,7 @@ export default {
       flex: 1;
       background: #FFF;
       border: #FFF .1rem solid;
-      margin: .12rem;
+      margin: .11rem;
       height: .64rem;
       line-height: .44rem;
       color: #AAA;
