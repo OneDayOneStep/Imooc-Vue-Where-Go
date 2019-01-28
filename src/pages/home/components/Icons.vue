@@ -69,6 +69,9 @@ export default {
 
 <style lang="scss" scoped>
   @import "~styles/sassreset.scss";
+  .swiper-container{
+    margin: .15rem 0;
+  }
   .icons{
     overflow: hidden;
     height: 0;
