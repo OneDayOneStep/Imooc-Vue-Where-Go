@@ -4,7 +4,7 @@
     <HomeSwiper />
     <HomeIcons />
     <Recommend />
-    <Weekend />
+    <Weekend  />
   </div>
 </template>
 

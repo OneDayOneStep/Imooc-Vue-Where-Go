@@ -67,7 +67,7 @@ export default {
       font-size: .32rem;
     }
     .item-desc{
-      color: #41576d;
+      color: #41577d;
       line-height: .52rem;
       white-space: nowrap;
       overflow: hidden;
