@@ -2,11 +2,11 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="(img, index) of imgList" :key="'imgList_' + index">
-        <img class="item-img" :src="img.imgSrc" />
+      <li class="item border-bottom" v-for="(img, index) of RecommendList" :key="'imgList_' + index">
+        <img class="item-img" :src="img.imgUrl" />
         <div class="item-info">
-          <p class="item-title">{{ img.name }}</p>
-          <p class="item-desc">{{ img.info }}</p>
+          <p class="item-title">{{ img.title }}</p>
+          <p class="item-desc">{{ img.desc }}</p>
           <button type="button" class="item-button">查看详情</button>
         </div>
       </li>
@@ -47,6 +47,9 @@ export default {
         }
       ]
     }
+  },
+  props: {
+    RecommendList: Array
   }
 }
 </script>

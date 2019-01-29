@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="weekend-title">热销推荐</div>
+    <div class="weekend-title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="(img, index) of imgList" :key="'imgList_' + index">
-        <div class="item-img-wrapper">
-          <img class="item-img" :src="img.imgSrc" />
+      <li class="item border-bottom" v-for="(img, index) of WeekendList.list" :key="'imgList_' + index">
+        <div class="item-img-wrapper" :style="gBottom">
+          <img class="item-img" :src="img.imgUrl" />
         </div>
         <div class="item-info">
-          <p class="item-title">{{ img.name }}</p>
-          <p class="item-desc">{{ img.info }}</p>
+          <p class="item-title">{{ img.title }}</p>
+          <p class="item-desc">{{ img.desc }}</p>
         </div>
       </li>
     </ul>
@@ -36,6 +36,14 @@ export default {
         }
       ]
     }
+  },
+  props: {
+    WeekendList: null
+  },
+  computed: {
+    gBottom () {
+      return 'padding-bottom:' + this.WeekendList.height / this.WeekendList.width * 100 + '%'
+    }
   }
 }
 </script>
@@ -53,7 +61,7 @@ export default {
   .item-img-wrapper{
     overflow: hidden;
     height: 0;
-    padding-bottom: 33.9%;
+    padding-bottom: 30%;
     img{
       width: 100%;
     }

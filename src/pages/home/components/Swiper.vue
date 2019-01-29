@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper">
-    <swiper :options="swiperOption" ref="mySwiper">
+  <div class="wrapper" :style="gBottom">
+    <swiper :options="swiperOption" ref="mySwiper" v-if="SwiperLength">
       <!-- slides -->
-      <swiper-slide v-for="(img, index) of imgSrc" :key="'HomeSwiper_' + index">
-        <img :src="img" class="SwiperImgs" />
+      <swiper-slide v-for="(img, index) of SwiperList.list" :key="'HomeSwiper_' + index">
+        <img :src="img.imgUrl" class="SwiperImgs" ref="element" />
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
@@ -28,6 +28,17 @@ export default {
         autoplay: 3000
       }
     }
+  },
+  props: {
+    SwiperList: Object
+  },
+  computed: {
+    gBottom () {
+      return 'padding-bottom:' + this.SwiperList.height / this.SwiperList.width * 100 + '%'
+    },
+    SwiperLength () {
+      return this.SwiperList.list !== undefined
+    }
   }
 }
 </script>
@@ -41,8 +52,8 @@ export default {
     overflow: hidden;
     width: 100%;
     height: 0;
-    padding-bottom: 26.7%;
     background: #DDD;
+    padding-bottom: 20%;
   }
   .SwiperImgs{
     width: 100%;

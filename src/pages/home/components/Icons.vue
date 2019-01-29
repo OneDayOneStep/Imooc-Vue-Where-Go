@@ -1,10 +1,10 @@
 <template>
-  <swiper :options="swiperOption" ref="mySwiper">
-    <swiper-slide v-for="(icons, index) of iconSrcList" :key="'Icons_' + index">
+  <swiper :options="swiperOption" ref="mySwiper" v-if="iconsLists.length > 0">
+    <swiper-slide v-for="(icons, index) of iconsLists" :key="'Icons_' + index">
       <div class="icons">
         <div class="icon" v-for="(icon, index_) of icons" :key="'Icon_' + index_">
-          <div class="iconImg"><img :src="icon.src" /></div>
-          <div class="iconName">{{ icon.name }}</div>
+          <div class="iconImg"><img :src="icon.imgUrl" /></div>
+          <div class="iconName">{{ icon.desc }}</div>
         </div>
       </div>
     </swiper-slide>
@@ -56,13 +56,27 @@ export default {
   computed: {
     iconSrcList () {
       let [ResultData, ReturnData] = [this.iconSrc, []]
-      let ResultDataL = Math.ceil(ResultData.length / 8)
-      for (let i = 0; i < ResultDataL; i++) {
-        let RR = ResultData.splice(0, 8)
-        ReturnData.push(RR)
+      for (let i = 0; i < ResultData.length; i++) {
+        if (ReturnData[Math.floor(i / 8)] === undefined) {
+          ReturnData[Math.floor(i / 8)] = []
+        }
+        ReturnData[Math.floor(i / 8)].push(ResultData[i])
+      }
+      return ReturnData
+    },
+    iconsLists () {
+      let [ResultData, ReturnData] = [this.iconsList, []]
+      for (let i = 0; i < ResultData.length; i++) {
+        if (ReturnData[Math.floor(i / 8)] === undefined) {
+          ReturnData[Math.floor(i / 8)] = []
+        }
+        ReturnData[Math.floor(i / 8)].push(ResultData[i])
       }
       return ReturnData
     }
+  },
+  props: {
+    iconsList: Array
   }
 }
 </script>

@@ -7,7 +7,7 @@
         <span class="iconfont">&#xe632;</span>
         {{ HomeHeader }}
       </div>
-      <div class="header-right">City
+      <div class="header-right">{{ city }}
         <span class="iconfont">&#xe62d;</span>
       </div>
     </div>
@@ -20,6 +20,9 @@ export default {
     return {
       HomeHeader: 'Where Go'
     }
+  },
+  props: {
+    city: String
   }
 }
 </script>
