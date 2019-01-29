@@ -7,9 +7,11 @@
         <span class="iconfont">&#xe632;</span>
         {{ HomeHeader }}
       </div>
-      <div class="header-right">{{ city }}
-        <span class="iconfont">&#xe62d;</span>
-      </div>
+      <router-link to="/city">
+        <div class="header-right">{{ city }}
+          <span class="iconfont">&#xe62d;</span>
+        </div>
+      </router-link>
     </div>
 </template>
 
