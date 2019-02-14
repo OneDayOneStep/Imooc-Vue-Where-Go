@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeHeader :city="currentCity" />
+    <HomeHeader />
     <HomeSwiper :SwiperList="SwiperList" />
     <HomeIcons  :iconsList="iconsList" />
     <Recommend  :RecommendList="recommendList" />
@@ -19,7 +19,6 @@ export default {
   name: 'Home',
   data () {
     return {
-      currentCity: '广州',
       SwiperList: {},
       SwiperListH: 0,
       SwiperListW: 0,

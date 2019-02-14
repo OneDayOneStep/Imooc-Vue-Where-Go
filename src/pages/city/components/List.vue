@@ -5,16 +5,7 @@
         <div class="areaTitle">当前城市</div>
         <div class="buts-list">
           <div class="buts-wrapper">
-            <div class="buts">广州</div>
-          </div>
-          <div class="buts-wrapper">
-            <div class="buts">广州</div>
-          </div>
-          <div class="buts-wrapper">
-            <div class="buts">广州</div>
-          </div>
-          <div class="buts-wrapper">
-            <div class="buts">广州</div>
+            <div class="buts">{{ this.CurrentCity }}</div>
           </div>
         </div>
       </div>
@@ -22,23 +13,14 @@
         <div class="areaTitle">热门城市</div>
         <div class="buts-list">
           <div class="buts-wrapper">
-            <div class="buts">广州</div>
-          </div>
-          <div class="buts-wrapper">
-            <div class="buts">广州</div>
-          </div>
-          <div class="buts-wrapper">
-            <div class="buts">广州</div>
-          </div>
-          <div class="buts-wrapper">
-            <div class="buts">广州</div>
+            <div class="buts" @click="ChangeCurrentCity('广州')">广州</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div v-for="(l, index) of cityList" :key="'l_' + index" :ref="'l_' + l.title">
           <div class="areaTitle">{{ l.title }}</div>
-          <div class="other-list" v-for="(li, index) of l.list" :key="'li_' + index">{{ li }}</div>
+          <div class="other-list" v-for="(li, index) of l.list" :key="'li_' + index" @click="ChangeCurrentCity(li)">{{ li }}</div>
         </div>
       </div>
     </div>
@@ -49,6 +31,7 @@
 <script>
 import BScroll from 'better-scroll'
 import Alphabet from './Alphabet'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'list',
   mounted () {
@@ -58,7 +41,14 @@ export default {
     scrollWithWord (e) {
       let ele = this.$refs['l_' + e][0]
       this.scroll.scrollToElement(ele)
-    }
+    },
+    ChangeCurrentCity (e) {
+      this.MutationsChangeCity(e)
+      this.$router.push('/home')
+    },
+    ...mapMutations({
+      MutationsChangeCity: 'ChangeCurrentCity'
+    })
   },
   components: {
     Alphabet: Alphabet
@@ -107,6 +97,9 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      CurrentCity: 'city'
+    }),
     Alphabets () {
       var Alist = []
       this.cityList.forEach(function (e) {
