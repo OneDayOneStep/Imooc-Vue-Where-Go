@@ -23,18 +23,21 @@ export default {
   },
   methods: {
     PageScroll () {
-      let Srtop = document.documentElement.scrollTop
-      if (Srtop < 30) {
+      let Scrolltop = document.documentElement.scrollTop
+      if (Scrolltop < 30) {
         this.ShowAbs = true
-        this.Opacity = (30 - Srtop) / 30
-      } else if (Srtop < 65) {
+        this.Opacity = (30 - Scrolltop) / 30
+      } else if (Scrolltop < 65) {
         this.ShowAbs = false
-        this.Opacity = (Srtop - 30) / 30
+        this.Opacity = (Scrolltop - 30) / 30
       }
     }
   },
   activated () {
     window.addEventListener('scroll', this.PageScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.PageScroll)
   }
 }
 </script>
