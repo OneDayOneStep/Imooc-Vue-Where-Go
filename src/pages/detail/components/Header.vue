@@ -24,12 +24,12 @@ export default {
   methods: {
     PageScroll () {
       let Scrolltop = document.documentElement.scrollTop
-      if (Scrolltop < 30) {
+      if (Scrolltop < 50) {
         this.ShowAbs = true
-        this.Opacity = (30 - Scrolltop) / 30
-      } else if (Scrolltop < 65) {
+        this.Opacity = (50 - Scrolltop) / 50
+      } else {
         this.ShowAbs = false
-        this.Opacity = (Scrolltop - 30) / 30
+        this.Opacity = (Scrolltop - 50) / 50
       }
     }
   },
@@ -53,6 +53,7 @@ export default {
     text-align: center;
     color: #FFF;
     padding-right: .5rem;
+    z-index: 10;
     .header-fixed-back{
       width: .64rem;
       text-align: center;

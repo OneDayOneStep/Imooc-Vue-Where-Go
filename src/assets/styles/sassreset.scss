@@ -20,3 +20,15 @@ $HeaderBgColor: #00bcd4;
   -moz-box-sizing: $box-sizing;
   -webkit-box-sizing: $box-sizing;
 }
+@mixin opacity($opacity){
+  filter:alpha(opacity = $opacity * 100);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+@mixin transition($transition, $s){
+  transition: $transition $s;
+  -moz-transition: $transition $s; /* Firefox 4 */
+  -webkit-transition: $transition $s; /* Safari 和 Chrome */
+  -o-transition: $transition $s; /* Opera */
+}
