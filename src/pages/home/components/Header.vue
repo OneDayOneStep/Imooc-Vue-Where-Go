@@ -58,7 +58,7 @@ export default {
       @include border-radius;
       .iconfont{
         color: #AAA;
-        margin-right: .1rem;
+        margin:0 .1rem;
       }
     }
     .header-right{

@@ -7,6 +7,21 @@ import Detail from '@/pages/detail/Detail'
 Vue.use(Router)
 
 export default new Router({
+  // routes: [
+  //   {
+  //     path: '/home',
+  //     name: 'Home',
+  //     component: () => import('@/pages/home/Home')
+  //   }, {
+  //     path: '/city',
+  //     name: 'City',
+  //     component: () => import('@/pages/city/City')
+  //   }, {
+  //     path: '/detail/:id',
+  //     name: 'Detail',
+  //     component: () => import('@/pages/detail/Detail')
+  //   }
+  // ],
   routes: [
     {
       path: '/home',

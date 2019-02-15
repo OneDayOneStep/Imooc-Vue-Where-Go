@@ -1,7 +1,7 @@
 <template>
   <ul id="Alphabets" ref="RightListBox">
     <li v-for="(al, index) of Alphabets" :key="'al_' + index" ref="RightList"
-        @touchstart="TouchStart"
+        @touchstart.prevent="TouchStart"
         @touchmove="TouchMove"
         @touchend="TouchEnd"
         @click="getWord">{{ al }}</li>

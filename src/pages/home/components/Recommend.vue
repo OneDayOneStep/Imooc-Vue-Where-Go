@@ -96,7 +96,7 @@ export default {
       .item-button{
         background: #FF9300;
         color: #FFF;
-        padding: .1rem .2rem;
+        padding: .06rem .2rem;
         @include border-radius;
         border: #FF9300 0 solid;
         margin-top: .08rem;
